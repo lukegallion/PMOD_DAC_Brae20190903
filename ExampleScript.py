@@ -15,8 +15,8 @@ bert.set_voltage_channel_adc(1, 5)
 bert.set_voltage_channel_adc(2, 2)
 bert.set_current_channel_adc(1, 3)
 bert.set_current_channel_adc(2, 4)
-bert.set_voltage_channel(3, 1)
-bert.set_voltage_channel(3, 0)
+bert.set_voltage_channel_adc(3, 1)
+bert.set_voltage_channel_adc(3, 0)
 
 # Create new dataframe
 run_data = bertran.create_electropherogram_dataframe()

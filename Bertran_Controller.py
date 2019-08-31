@@ -1,5 +1,4 @@
-
-import pyserial as serial
+import serial
 import datetime
 import logging
 import numpy as np
@@ -70,7 +69,7 @@ class BertranControl:
         return in_data
 
 
-def create_electropherogram_dataframe(data_time=None,data=None)
+def create_electropherogram_dataframe(data_time=None,data=None):
     columns = ['Time', 'C0_voltage', 'C1_voltage', 'C2_voltage', 'C3_voltage', 'C4_voltage', 'C5_voltage', 'C6_voltage',
                'C7_voltage', 'C0_current', 'C1_current', 'C2_current', 'C3_current', 'C4_current', 'C5_current',
                'C6_current', 'C7_current']
