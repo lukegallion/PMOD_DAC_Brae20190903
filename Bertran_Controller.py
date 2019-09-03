@@ -1,9 +1,18 @@
+#import modules to provide some specialty functions
 import serial
 import datetime
 import logging
 import numpy as np
 import struct
 import pandas as pd
+   ''' 
+   Define functions
+   A function is a block of organized, reusable code to perform a single, related action. Allow high degree of code reusing.
+   Python comes with many functions, but you can also create user-defined functions.
+   Function blocks begin with def followed by function name. Put input parameters or arguments inside parentheses.
+   Code within each function starts with a colon and is indented. 
+   The statement return [expression] exits a function, optionally passing back an expression to the caller.
+   '''
 
 class BertranControl:
 
@@ -68,16 +77,18 @@ class BertranControl:
             in_data[0][1]=struct.unpack('f', byte_data[idx+i*4:idx+(i*4+4)])[0]
         return in_data
 
-
+#data output to table. 
 def create_electropherogram_dataframe(data_time=None,data=None):
+    #create columns in the data table
     columns = ['Time', 'C0_voltage', 'C1_voltage', 'C2_voltage', 'C3_voltage', 'C4_voltage', 'C5_voltage', 'C6_voltage',
                'C7_voltage', 'C0_current', 'C1_current', 'C2_current', 'C3_current', 'C4_current', 'C5_current',
                'C6_current', 'C7_current']
-
+    #filling data table
     if data is None:
         new_df = pd.DataFrame(columns=columns)
     else:
         new_df = pd.DataFrame(data=data,columns = columns[1:])
+        #add time for each data point collected
         new_df['Time']=data_time
 
     return new_df
